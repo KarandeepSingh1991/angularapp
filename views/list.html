@@ -1,0 +1,109 @@
+<!--<center>Search&nbsp;<input style="margin-top:10px"; type="text" placeholder="Search the Movie" ng-model="query"></center>-->
+<div ng-show="togglecart" style="margin-left:812px ;margin-top:-26px; border:2px solid black ;height:112px;width:188px;padding:3px;border-radius:10px";>
+     
+             <h5>Total {{newobject.length}} items</h5>
+             <input type="text" placeholder="Total"  id="total" value="{{total}}" ng-model="total" ng-readonly="true">
+    		<center><button type="button" class="btn btn-default btn-success" style="margin-top:4px";>Checkout</button></center>
+</div>
+
+<div class="table-responsive">
+        <table class="table">
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        
+    <tbody>
+        <div class="row">
+        <tr ng-repeat="data in wholedata | filter:query">
+             <div class="col-md-4">
+            <td><a href="#/product/{{wholedata.indexOf(data)}}">{{data.title}}</a></td>
+            <td>{{data.duration }}</td>
+            <td>{{data.price | currency:"&#8377;"}}</td>
+             <td class="img"><img ng-src="{{data.image}}"/></td></div>
+                <div class="col-md-4">
+            <td><button ng-click="edit(data,$index)" class="btn btn-primary">Edit</button></td>
+            <td><button ng-click="delete(data)" class="btn btn-danger">Delete</button></td>
+            <td><button ng-click="addcart(data)" class="btn btn-primary">Add To Cart</button></td>
+                </div>
+              </tr>
+        </div>
+    </tbody>
+    </table>  
+</div>
+
+
+
+<center><a class="btn btn-info btn-md" style="padding:20px;margin-bottom:65px;" ng-click="show()">AddProduct/EditProduct</a></center>
+       
+
+         <table class = "table table-striped" ng-show="toggle" style="margin-bottom: 49px;">  
+        <tr>
+        <th>Product Name</th>
+        <th>Duration</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Add</th>
+        </tr>
+           <tbody>
+            <tr>
+                <td><input type="text" placeholder="addItem" ng-show="toggle" id="Name" ng-bind="data.title" ng-model="title"></td>
+                <td><input type="text" placeholder="addDuration" ng-show="toggle" id="Duration" value="{{duration}}" ng-model="duration"></td> 
+                <td><input type="text" placeholder="addPrice" ng-show="toggle" id="Price" value="{{price | currency:currency}}" ng-model="price"></td>
+                <td><input type="file" id="thefile" placeholder="Image" ng-show="toggle" ng-model="Image" ng-change="alertFilename();"/>
+            <hr>
+                    
+                <input type="button" class="btn btn-success" ng-click="alertFilename()" value="Upload"/>
+                <span id="myspan"> Click for Uploading </span>
+               
+                 
+               <!--<td><button class="btn btn-primary" ng-click="editNew(data,$index)">Edit</button></td>-->
+               <td><button class="btn btn-primary" ng-click="editNew()">Edit</button></td>
+                <td><button class="btn btn-primary" ng-click="add()">Add</button></td>
+               </tr>
+      </tbody>     
+</table>
+
+
+
+
+<table class = "table table-bordered" ng-show="togglecart" style="    margin-bottom: 49px;">  
+         <tr>
+        <th>Product Name</th> 
+         <th>Price</th>
+         <th>Quantity</th>
+        <th>Amount</th>
+        </tr>
+     <tbody>
+     <tr ng-repeat="newobjects in newobject">
+         <td>
+         <input type="text" placeholder="addItem"  id="Name" value="{{newobjects.title}}" ng-readonly="true">
+         </td>
+         <td>
+         <input type="text" placeholder="price"  id="Prices" value="{{newobjects.price | currency:currency}}" ng-readonly="true" >
+         </td>
+         <td>
+         <select id="selectionquantity" ng-model="newobjects.quantity" ng-change="quantchange(newobjects,$index)" ng-options="x for x in optionsselected">
+             <!--<option value="" ng-if="false"></option>-->
+         </select>
+         </td>
+         <td>
+             <input type="text" placeholder="amount"  id="amount"  value="{{newobjects.amount|currency:currency}}" ng-readonly="true">
+         
+         </td>
+         <td>
+        <button ng-click="remove(newobjects,$index)" class="btn btn-danger">Remove</button></td>
+         </tr>
+     
+     </tbody>
+</table>
+
+
+

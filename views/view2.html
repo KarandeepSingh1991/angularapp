@@ -1,0 +1,77 @@
+<div class="container">
+<div class = "col-md-4 text-center karan" >
+    <div id="owl-demo" ng-repeat="data in wholedata">
+        <div class="item"><img ng-src="{{data.image}}" alt="Image1"></div>
+</div> 
+    </div>
+    <div class = "col-md-8 text-center" ng-show="toggleviewprod">
+<table class = "table table-hover" style="margin-top:50px;">
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+             </tr>
+        </thead>  
+    <tbody>
+        <tr ng-repeat="data in wholedata | filter:query">
+            <td><a class="cursor" ng-click="view2Data(data,$index);" >{{data.title}}</a></td>
+            <td>{{data.duration }}</td>
+            <td>{{data.price | currency:"&#8377;"}}</td>
+            <td class="img"><img ng-src="{{data.image}}"/></td>
+            <td><button ng-click="edit(data,$index)" class="btn btn-primary">Edit</button></td>
+            <td><button ng-click="delete(data)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+        </table>
+        
+         <table class = "table table-striped" ng-show="toggle">  
+        <tr>
+        <th>Product Name</th>
+        <th>Duration</th>
+        <th>Price</th>
+        <th>Edit</th>
+        <th>Add</th>
+        </tr>
+           <tbody>
+            <tr>
+                <td><input type="text" placeholder="addItem" ng-show="toggle" id="Name" ng-bind="data.title" ng-model="title"></td>
+                <td><input type="text" placeholder="addDuration" ng-show="toggle" id="Duration" value="{{duration}}" ng-model="duration"></td> 
+                <td><input type="text" placeholder="addPrice" ng-show="toggle" id="Price" value="{{price | currency:currency}}" ng-model="price"></td>
+               <!--<td><button class="btn btn-primary" ng-click="editNew(data,$index)">Edit</button></td>-->
+               <td><button class="btn btn-primary" ng-click="editNew()">Edit</button></td>
+                <td><button class="btn btn-primary" ng-click="add()">Add</button></td>
+               </tr>
+      </tbody>     
+</table>
+
+        
+</div>
+<div class = "col-md-6 text-center" ng-show="toggleshow" id="top">
+    <table class = "table table-hover" style="margin-top: 50px;">
+        <thead>
+            <tr>
+            <th>Product Name</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>Image</th>
+             </tr>
+        </thead>
+        
+        <tbody>
+            Hello {{name}} 
+            <tr> 
+                <td>{{selectedtitle}}</td>
+                <td>{{selectedduration}}</td>
+                <td>{{selectedprice}}</td>
+                <td class="prodimg"><img ng-src="{{selectedimage}}"/></td>
+            </tr>
+        <tr>
+       <td><button class="btn btn-primary" ng-click="ViewProducts();">View All Products</button></td>
+        </tr>
+    </tbody>
+ </table>
+</div>

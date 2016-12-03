@@ -1,0 +1,152 @@
+<!doctype html>
+<html ng-app="MyApp">
+    <base href="/index.html">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Application</title>
+    <script src="library/angular.min.js"></script>
+    <script src="library/angular-route.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-cookies.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="app/app.js"></script>
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="css/addRemove.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+    <script src="assets/js/jquery-1.9.1.min.js"></script>
+    <script src="owl-carousel/owl.carousel.js"></script>
+    <script src="controllers/listController.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+     <link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+    <script src="library/angular-socialshare.js"></script>
+    </head>
+    
+    
+    <body ng-controller="listController">
+         <!--<div class="menu">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Search&nbsp;<input style="margin-top:10px;color:black;"; type="text" placeholder="Search the Movie" ng-model="query" ></li>
+               <center><li class="switchbtn"><button ng-click="switchview()">Switch to {{view}}</button></li></center> 
+                Currently you are at {{presentview}}
+                
+             </ul>  
+        </div>-->
+   
+        
+        
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">Karan's Site</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="javascript:void(0)">Home <span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:void(0)">Page1</a></li>
+            <li><a href="javascript:void(0)">Another Page</a></li>
+            <li><a href="javascript:void(0)">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="javascript:void(0)">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="javascript:void(0)">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="query">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+        <button ng-click="switchview()" class="btn btn-default navbar-btn">Switch to {{view}}</button>  
+        <button class="btn btn-default navbar-btn"    
+        socialshare
+        socialshare-provider="facebook"
+        socialshare-text="Karan Product Cart"
+        socialshare-hashtags="eccomerce cart"
+        socialshare-url="http://www.karancart.com">
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        </button>
+            <button class="btn btn-default navbar-btn"    
+        socialshare
+        socialshare-provider="linkedin"
+        socialshare-text="Karan Product Cart"
+        socialshare-hashtags="eccomerce cart"
+        socialshare-url="http://www.karancart.com">
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i> 
+        </button>
+            <button class="btn btn-medium font-bold"    
+        socialshare
+        socialshare-provider="flipboard"
+        socialshare-text="Karan Product Cart"
+        socialshare-url="http://www.amazon.com">
+        <i class="fa fa-jsfiddle" aria-hidden="true"></i> 
+            </button>
+             
+           
+          </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+        
+        
+    <div id="owl-demo" ng-show="corosel">
+        <div class="item"><img src="images/t1.jpg" alt="Image1"></div>
+        <div class="item"><img src="images/t2.jpg" alt="Image2"></div>
+        <div class="item"><img src="images/t3.jpg" alt="Image3"></div>
+        <div class="item"><img src="images/t4.jpg" alt="Image4"></div>
+        <div class="item"><img src="images/t5.jpg" alt="Image5"></div>
+        <div class="item"><img src="images/k6.jpg" alt="Image6"></div>
+        <div class="item"><img src="images/k7.jpg" alt="Image7"></div>
+        <div class="item"><img src="images/k8.jpg" alt="Image8"></div>
+        <div class="item"><img src="images/k9.jpg" alt="Image9"></div>
+    </div>
+
+        <div ng-view ></div>
+
+            
+         
+        
+       
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text">Site Build By Karan</p>
+            <p class="navbar-btn btn btn-info">Contact Us</p>
+            <a href="#" class="navbar-btn btn-danger btn pull-right">Youtube</a>
+            </div>
+        </div>
+    </body>
+    <script>  
+    $(document).ready(function() {
+        $("#owl-demo").owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items : 4,
+        itemsDesktop : [1199,4],
+        itemsDesktopSmall : [979,4]
+ 
+        });
+ 
+        });
+    </script>
+</html>
